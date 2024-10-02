@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Catedra1.src.Data.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    [Migration("20241002230810_firstMigration")]
+    [Migration("20241002232238_firstMigration")]
     partial class firstMigration
     {
         /// <inheritdoc />
