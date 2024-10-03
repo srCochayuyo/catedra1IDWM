@@ -59,7 +59,7 @@ namespace Catedra1.src.Controllers
 
             var userModel = userDto.ToUserDto();
             await _userRepository.Post(userModel);
-             return CreatedAtAction(nameof(GetById), new { id = userModel.Id }, userModel.ToUserDto);
+            return Ok() ;
 
         }
 
