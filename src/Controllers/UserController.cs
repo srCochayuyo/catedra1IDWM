@@ -3,15 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Catedra1.src.Interface;
-using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Mvc;
 using Catedra1.src.Dtos;
-using RouteAttribute = Microsoft.AspNetCore.Components.RouteAttribute;
 using Catedra1.src.Mappers;
 
 namespace Catedra1.src.Controllers
 {
-    [Route("api/user")]
+    [Route("api/[controller]")]
     [ApiController]
     public class UserController : ControllerBase
     {
