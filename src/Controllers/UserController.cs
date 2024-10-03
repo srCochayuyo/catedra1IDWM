@@ -99,7 +99,7 @@ namespace Catedra1.src.Controllers
             {
                 return NotFound();
             }
-            return NoContent();
+            return StatusCode(200, "Usuario Eliminado exitosamente");
         }
 
   
