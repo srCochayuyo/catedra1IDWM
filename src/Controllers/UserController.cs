@@ -62,6 +62,37 @@ namespace Catedra1.src.Controllers
              return CreatedAtAction(nameof(GetById), new { id = userModel.Id }, userModel.ToUserDto);
 
         }
+
+        
+        //Put
+        [HttpPut("{id:int}")]
+        public async Task<IActionResult> Put([FromRoute] int id, [FromBody] UserDto userDto)
+        {
+            if(!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            var userModel = await _userRepository.Put(id, userDto);
+            if (userModel == null)
+            {
+                return NotFound();
+            }
+            return Ok(userModel);
+        }
+
+        
+        [HttpDelete("{id:int}")]
+        public async Task<IActionResult> Delete([FromRoute] int id)
+        {
+            var user = await _userRepository.Delete(id);
+            if (user == null)
+            {
+                return NotFound();
+            }
+            return NoContent();
+        }
+
+  
         
     }
 }
