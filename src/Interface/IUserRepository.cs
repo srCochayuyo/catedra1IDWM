@@ -9,7 +9,7 @@ using SQLitePCL;
 
 namespace Catedra1.src.Interface
 {
-    public interface IUserRepository : IUserRepository
+    public interface IUserRepository 
     {
         //Post
         Task<User> Post(User user);
