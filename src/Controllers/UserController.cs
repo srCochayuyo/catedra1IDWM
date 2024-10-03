@@ -23,7 +23,7 @@ namespace Catedra1.src.Controllers
 
 
     [HttpGet("")]
-    public async Task<IActionResult> GetAllUsers([FromQuery] string sort = null, [FromQuery] string gender = null)
+    public async Task<IActionResult> Get([FromQuery] string? sort = null, [FromQuery] string? gender = null)
     {
     // Validaciones de los parámetros de entrada
         if (sort != null && sort.ToLower() != "asc" && sort.ToLower() != "desc")

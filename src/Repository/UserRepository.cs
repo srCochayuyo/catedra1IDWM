@@ -32,7 +32,7 @@ namespace Catedra1.src.Repository
             return userModel;
         }
 
-        public async Task<IEnumerable<User>> Get(string sort, string gender)
+        public async Task<IEnumerable<User>> Get(string? sort, string? gender)
         {
             var users = await _context.Users.ToListAsync();
 

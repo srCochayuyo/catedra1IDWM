@@ -17,7 +17,7 @@ namespace Catedra1.src.Interface
         //Put
         Task<User?> Put(int id, UserDto userDto);
 
-        Task<IEnumerable<User>> Get(string sort, string gender);
+        Task<IEnumerable<User>> Get(string? sort, string? gender);
 
         Task<User?> Delete(int id);
 
