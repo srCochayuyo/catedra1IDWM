@@ -9,7 +9,7 @@ using Catedra1.src.Mappers;
 
 namespace Catedra1.src.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/user")]
     [ApiController]
     public class UserController : ControllerBase
     {
@@ -22,22 +22,29 @@ namespace Catedra1.src.Controllers
         }
 
 
-        [HttpGet("Genre/{Genre}")]
-        public async Task<IActionResult> GetByCategory([FromRoute] string genre)
+    [HttpGet("")]
+    public async Task<IActionResult> GetAllUsers([FromQuery] string sort = null, [FromQuery] string gender = null)
+    {
+    // Validaciones de los parámetros de entrada
+        if (sort != null && sort.ToLower() != "asc" && sort.ToLower() != "desc")
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            var user = await _userRepository.GetByGenre(genre);
-            if (user == null)
-            {
-                return NotFound();
-            }
-            return Ok(user);
+            return BadRequest("El valor de 'sort' debe ser 'asc' o 'desc'.");
         }
 
+        if  (gender != null && 
+            gender.ToLower() != "masculino" && 
+            gender.ToLower() != "femenino" && 
+            gender.ToLower() != "otro" && 
+            gender.ToLower() != "prefiero no decirlo")
+        {
+            return BadRequest("El valor de 'gender' no es válido.");
+        }
+
+    
+        var users = await _userRepository.Get(sort, gender);
+
+        return Ok(users);
+    }
 
         //Post
         [HttpPost("")]
@@ -48,16 +55,21 @@ namespace Catedra1.src.Controllers
 
             if(exist)
             {
-                return Conflict("El user ya existe");
+                return StatusCode(409, "El rut ya existe");
+;
             }
             else if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
+
+            } else if(userDto.fechaNacimiento > DateTime.Now)
+            {
+                return BadRequest("La fecha de nacimiento debe ser anterior a la fecha actual.");
             }
 
             var userModel = userDto.ToUserDto();
             await _userRepository.Post(userModel);
-            return Ok() ;
+            return StatusCode(201, "Usuario creado exitosamente");
 
         }
 

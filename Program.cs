@@ -12,7 +12,7 @@ Env.Load();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-string connectionString = Environment.GetEnvironmentVariable("DATABASE_URL") ?? "Data_source";
+string connectionString = Environment.GetEnvironmentVariable("DATABASE_URL") ?? "Data source";
 builder.Services.AddDbContext<ApplicationDBContext>(opt => opt.UseSqlite(connectionString));
 
 builder.Services.AddControllers();
@@ -35,5 +35,5 @@ using(var scope = app.Services.CreateScope())
     await Seeder.Seed(context);
 }
 
-app.UseHttpsRedirection();
+app.MapControllers();
 app.Run();

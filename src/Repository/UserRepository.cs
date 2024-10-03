@@ -14,9 +14,9 @@ namespace Catedra1.src.Repository
     {
         private readonly ApplicationDBContext _context;
 
-        public UserRepository(ApplicationDBContext contex)
+        public UserRepository(ApplicationDBContext context)
         {
-            _context = contex;
+            _context = context;
         }
 
         public async Task<User?> Delete(int id)
@@ -32,9 +32,26 @@ namespace Catedra1.src.Repository
             return userModel;
         }
 
-        public async Task<IEnumerable<User>> GetByGenre(string genre)
+        public async Task<IEnumerable<User>> Get(string sort, string gender)
         {
-            return await _context.Users.Where(p => p.Genre == genre).ToListAsync();
+            var users = await _context.Users.ToListAsync();
+
+            if (!string.IsNullOrEmpty(gender))
+            {
+                users = users.Where(u => u.Genre.ToLower() == gender.ToLower()).ToList();
+            }
+
+            if (sort == "asc")
+            {
+                users = users.OrderBy(u => u.Name).ToList();
+            }
+            else if (sort == "desc")
+            {
+                users = users.OrderByDescending(u => u.Name).ToList();
+            }
+
+             return users;
+
         }
 
         public async Task<User> Post(User user)

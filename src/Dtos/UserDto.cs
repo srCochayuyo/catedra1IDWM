@@ -8,16 +8,22 @@ namespace Catedra1.src.Dtos
 {
     public class UserDto
     {
-         public string rut {get; set;} = string.Empty;
+        [Required]
+        public string rut {get; set;} = string.Empty;
 
+        [Required]
         [StringLength(100, MinimumLength = 3, ErrorMessage = "El nombre debe tener entre 3 y 100 caracteres")]
         public string Name { get; set; } = string.Empty;
 
+        [Required]
+        [EmailAddress]
         public string Correo { get; set; } = string.Empty;
 
-        [RegularExpression(@"masculino|femenino|otro|prefiero no decirlo")]
+        [Required]
+        [RegularExpression(@"masculino|femenino|otro|prefiero no decirlo", ErrorMessage = "El género no es válido")]
         public string Genre { get; set; } = string.Empty;
 
+        [Required]
         public DateTime fechaNacimiento {get; set;}
     }
     
