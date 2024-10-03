@@ -84,11 +84,16 @@ namespace Catedra1.src.Controllers
             {
                 return BadRequest(ModelState);
             }
-            var userModel = await _userRepository.Put(id, userDto);
-            if (userModel == null)
+
+            var user = await _userRepository.GetById(id);
+            
+            if (user == null)
             {
                 return NotFound();
             }
+            
+            var userModel = await _userRepository.Put(id, userDto);
+            
             return Ok(userModel);
         }
 
@@ -96,11 +101,13 @@ namespace Catedra1.src.Controllers
         [HttpDelete("{id:int}")]
         public async Task<IActionResult> Delete([FromRoute] int id)
         {
-            var user = await _userRepository.Delete(id);
+            var user = await _userRepository.GetById(id);
+            
             if (user == null)
             {
                 return NotFound();
             }
+            await _userRepository.Delete(id);
             return StatusCode(200, "Usuario Eliminado exitosamente");
         }
 
