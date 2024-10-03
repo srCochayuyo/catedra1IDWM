@@ -6,6 +6,7 @@ using Catedra1.src.Data;
 using Catedra1.src.Dtos;
 using Catedra1.src.Interface;
 using Catedra1.src.Model;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.EntityFrameworkCore;
 
 namespace Catedra1.src.Repository
@@ -68,6 +69,7 @@ namespace Catedra1.src.Repository
             {
                 throw new Exception("User not found");
             }
+
             userModel.rut = userDto.rut;
             userModel.Name = userDto.Name;
             userModel.Correo = userDto.Correo;

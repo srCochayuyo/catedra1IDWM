@@ -26,6 +26,6 @@ namespace Catedra1.src.Model
         public string Genre { get; set; } = string.Empty;
 
         [Required]
-        public DateTime fechaNacimiento {get; set;}
+        public DateOnly fechaNacimiento {get; set;}
     }
 }

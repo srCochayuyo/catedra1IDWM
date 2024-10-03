@@ -23,7 +23,7 @@ namespace Catedra1.src.Data
                     Name = "Cristhian Montoya",
                     Correo = "cochayuyo@gmail.com",
                     Genre = "masculino",
-                    fechaNacimiento = new DateTime(2003, 11, 06)
+                    fechaNacimiento = new DateOnly(2003, 11, 06)
                 },
                 new User
                 {
@@ -31,7 +31,7 @@ namespace Catedra1.src.Data
                     Name = "Luis Gahona",
                     Correo = "luisgahona@gmail.com",
                     Genre = "masculino",
-                    fechaNacimiento = new DateTime(1920, 7, 2)
+                    fechaNacimiento = new DateOnly(1920, 7, 2)
                 },
                 new User
                 {
@@ -39,7 +39,7 @@ namespace Catedra1.src.Data
                     Name = "Carolina Gahona",
                     Correo = "carolagahona@gmail.com",
                     Genre = "femenino",
-                    fechaNacimiento = new DateTime(1986, 3, 16)
+                    fechaNacimiento = new DateOnly(1986, 3, 16)
                 },
                 new User
                 {
@@ -47,7 +47,7 @@ namespace Catedra1.src.Data
                     Name = "Cristobal Montoya",
                     Correo = "totobal@gmail.com",
                     Genre = "masculino",
-                    fechaNacimiento = new DateTime(2007, 7, 24)
+                    fechaNacimiento = new DateOnly(2007, 7, 24)
                 },
                 new User
                 {
@@ -55,7 +55,7 @@ namespace Catedra1.src.Data
                     Name = "Abelardo Peña",
                     Correo = "abelardo@gmail.com",
                     Genre = "masculino",
-                    fechaNacimiento = new DateTime(1980, 10, 25)
+                    fechaNacimiento = new DateOnly(1980, 10, 25)
                 },
                 new User
                 {
@@ -63,7 +63,7 @@ namespace Catedra1.src.Data
                     Name = "Mireya Araya",
                     Correo = "mireya@gmail.com",
                     Genre = "femenino",
-                    fechaNacimiento = new DateTime(1950, 9, 27)
+                    fechaNacimiento = new DateOnly(1950, 9, 27)
                 },
                 new User
                 {
@@ -71,7 +71,7 @@ namespace Catedra1.src.Data
                     Name = "Maria Araya",
                     Correo = "Maria@gmail.com",
                     Genre = "femenino",
-                    fechaNacimiento = new DateTime(1980, 1, 14)
+                    fechaNacimiento = new DateOnly(1980, 1, 14)
                 },
                 new User
                 {
@@ -79,7 +79,7 @@ namespace Catedra1.src.Data
                     Name = "Isaias Cabrera",
                     Correo = "cabrera@gmail.com",
                     Genre = "otro",
-                    fechaNacimiento = new DateTime(2000, 7, 30)
+                    fechaNacimiento = new DateOnly(2000, 7, 30)
                 },
                 new User
                 {
@@ -87,7 +87,7 @@ namespace Catedra1.src.Data
                     Name = "Cristian de Buyne",
                     Correo = "krostfire@gmail.com",
                     Genre = "otro",
-                    fechaNacimiento = new DateTime(2000, 7, 13)
+                    fechaNacimiento = new DateOnly(2000, 7, 13)
                 },
                 new User
                 {
@@ -95,7 +95,15 @@ namespace Catedra1.src.Data
                     Name = "Lionel Messi",
                     Correo = "goat@gmail.com",
                     Genre = "masculino",
-                    fechaNacimiento = new DateTime(1980, 3, 30)
+                    fechaNacimiento = new DateOnly(1980, 3, 30)
+                },
+                new User
+                {
+                    rut = "14465786-k",
+                    Name = "Cristiano Ronaldo",
+                    Correo = "mrChampions@gmail.com",
+                    Genre = "prefiero no decirlo",
+                    fechaNacimiento = new DateOnly(1985, 7, 21)
                 }
             };
 

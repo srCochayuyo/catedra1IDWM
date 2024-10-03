@@ -52,6 +52,7 @@ namespace Catedra1.src.Controllers
         {
 
             bool exist = await _userRepository.ExistByCode(userDto.rut);
+            var nowDate = DateOnly.FromDateTime(DateTime.Now);
 
             if(exist)
             {
@@ -62,7 +63,7 @@ namespace Catedra1.src.Controllers
             {
                 return BadRequest(ModelState);
 
-            } else if(userDto.fechaNacimiento > DateTime.Now)
+            } else if(userDto.fechaNacimiento > nowDate)
             {
                 return BadRequest("La fecha de nacimiento debe ser anterior a la fecha actual.");
             }
@@ -78,6 +79,7 @@ namespace Catedra1.src.Controllers
         [HttpPut("{id:int}")]
         public async Task<IActionResult> Put([FromRoute] int id, [FromBody] UserDto userDto)
         {
+
             if(!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
